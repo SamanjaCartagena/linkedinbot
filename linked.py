@@ -22,7 +22,6 @@ search=driver.find_element(By.XPATH,"//input[@placeholder='Search']")
 search.send_keys("software engineer",Keys.ENTER)
 time.sleep(3)
 
-driver.find_element(By.XPATH,"//button[text()='People']")
 people=driver.find_element(By.XPATH,"//button[text()='People']")
 time.sleep(3)
 people.click()
@@ -72,6 +71,25 @@ else:
     time.sleep(5)
     next = driver.find_element(By.XPATH,"//button[@aria-label='Next']").click()
     time.sleep(5)
+
+hashtag=driver.find_element(By.XPATH,"//input[@placeholder='Search']")
+search.clear()
+search.send_keys("real estate",Keys.ENTER)
+time.sleep(10)
+
+
+
+all_buttons= driver.find_elements(By.TAG_NAME,"button")
+messages=[btn for btn in all_buttons if btn.text == "Message"]
+for btn in messages:
+    btn.click()
+    driver.execute_script("arguments[0].click();", btn)
+    
+    time.sleep(3)
+    time.sleep(3)
+
+posts=driver.find_elements(By.XPATH,'/html[1]/body[1]/div[5]/div[3]/div[2]/section[1]/div[1]/nav[1]/div[1]/ul[1]/li[1]/div[1]/button[1]').click()
+
 
 
 driver.quit()
