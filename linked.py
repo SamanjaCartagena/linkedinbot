@@ -72,19 +72,19 @@ else:
     next = driver.find_element(By.XPATH,"//button[@aria-label='Next']").click()
     time.sleep(5)
 
-hashtag=driver.find_element(By.XPATH,"//input[@placeholder='Search']")
-search.clear()
-search.send_keys("real estate",Keys.ENTER)
+driver.get('https://www.linkedin.com/search/results/people/?keywords=real%20estate&origin=SWITCH_SEARCH_VERTICAL&sid=5dK')
 time.sleep(10)
 
 
 
 all_buttons= driver.find_elements(By.TAG_NAME,"button")
-messages=[btn for btn in all_buttons if btn.text == "Message"]
-for btn in messages:
-    btn.click()
-    driver.execute_script("arguments[0].click();", btn)
-    
+messages=[btn1 for btn1 in all_buttons if btn1.text == "Message"]
+for btn1 in messages:
+    btn1.click()
+
+    subject=driver.find_element(By.ID,"input-uid-ember1216']")
+    subject.send_keys("Hello I am a Bot")
+
     time.sleep(3)
     time.sleep(3)
 
